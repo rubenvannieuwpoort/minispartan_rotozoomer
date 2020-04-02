@@ -1,9 +1,25 @@
-# minispartan_rotozoomer
+# miniSpartan6+ rotozoomer
 A rotozoomer for the miniSpartan 6+, written in VHDL, and using [Mike Fields HDMI signal generation](https://github.com/scarabhardware/miniSpartan6-plus).
 
 This rotates a 256x256 image on the HDMI out of the miniSpartan 6+ (it doesn't zoom yet - so technically it shouldn't be called a rotozoomer... but hey, who cares).
 https://www.youtube.com/watch?v=n5g-sjUP02Y
 [![Video of the result](https://img.youtube.com/vi/n5g-sjUP02Y/hqdefault.jpg)](https://www.youtube.com/watch?v=n5g-sjUP02Y)
+
+## Getting started
+
+To get the rotozoomer working:
+  - Doubleclixk dvid_serdes.xise to open the ISE Project Navigator. If a prompt appears, click 'create'.
+  - In the 'files' pane, doubleblick tmds_out_fifo.xco. A wizard should appear (this might take a while).
+  - Click generate and choose 'yes' at the prompt. Wait until the process is finished.
+  - In the design pane, make sure that the radio button 'implementation' is selected, and that the dvid_serdes file is highlighted. Now click on 'Generate Programming File' in the process pane.
+  - Wait until generating the programming file has finished.
+  - Connect the miniSpartan6+ to your computer via USB and run
+    xc3sprog -c ftdi init.bit
+    xc3sprog -c ftdi -I path/to/dvid_serdes.bit
+  - Disconnect the miniSpartan6+ from your computer.
+  - Connect it to an HDMI monitor (a TV with HDMI probably won't work) and power it up.
+  - Watch the rotozoomer.
+  - Think about what you could have done in the 20 minutes of your life that you spent to get this thing working.
 
 ## Chroma subsampling
 
